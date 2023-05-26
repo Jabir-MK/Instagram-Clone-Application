@@ -6,7 +6,7 @@ import 'package:instagram_clone/responsive/respnosive_layout.dart';
 import 'package:instagram_clone/screens/signup_screen.dart';
 import 'package:instagram_clone/services/auth_services.dart';
 import 'package:instagram_clone/utils/colors.dart';
-import 'package:instagram_clone/utils/dimensions.dart';
+import 'package:instagram_clone/utils/global_variables.dart';
 import 'package:instagram_clone/utils/utils.dart';
 import 'package:instagram_clone/widgets/text_field.dart';
 

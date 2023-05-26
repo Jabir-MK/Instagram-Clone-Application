@@ -6,11 +6,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:instagram_clone/models/user.dart' as model;
 import 'package:instagram_clone/services/storage_services.dart';
-import 'package:instagram_clone/utils/dimensions.dart';
+import 'package:instagram_clone/utils/global_variables.dart';
 
 class AuthServices {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  //
+  Future<model.UserModel> getUserDetails() async {
+    User currentUser = firebaseAuth.currentUser!;
+    DocumentSnapshot documentSnapshot =
+        await firestore.collection('users').doc(currentUser.uid).get();
+    return model.UserModel.fromSnap(documentSnapshot);
+  }
+
   // Method for sign up
   Future<String> userSignUp({
     required String email,
